@@ -6,6 +6,8 @@ class PlaygroundPreviewView extends View
     @div class: 'playground-preview overlay from-top', =>
       @div "The PlaygroundPreview package is Alive! It's ALIVE!", class: "message"
 
+  renderPlayground: ->
+    console.log "Rendering"
   # initialize: (serializeState) ->
   #   atom.workspaceView.command "playground-preview:toggle", => @toggle()
   #
