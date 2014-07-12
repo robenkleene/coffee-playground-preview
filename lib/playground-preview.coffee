@@ -3,11 +3,9 @@ PlaygroundPreviewView = require './playground-preview-view'
 module.exports =
   playgroundPreviewView: null
 
-  activate: (state) ->
-    @playgroundPreviewView = new PlaygroundPreviewView(state.playgroundPreviewViewState)
+  activate: ->
+    atom.workspaceView.command 'playground-preview:toggle', =>
+      @toggle()
 
-  deactivate: ->
-    @playgroundPreviewView.destroy()
-
-  serialize: ->
-    playgroundPreviewViewState: @playgroundPreviewView.serialize()
+  toggle: ->
+    console.log "Got here"
