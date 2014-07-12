@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable playground-preview': 'playground-preview:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'playground-preview'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'playground-preview:toggle' }
+      ]
+    ]
+  }
+]
