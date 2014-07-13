@@ -1,7 +1,7 @@
 {View} = require 'atom'
 
 module.exports =
-class PlaygroundPreviewView extends View
+class PlaygroundPreviewView extends ScrollView
   @content: ->
     @div class: 'playground-preview overlay from-top', =>
       @div "The PlaygroundPreview package is Alive! It's ALIVE!", class: "message"
