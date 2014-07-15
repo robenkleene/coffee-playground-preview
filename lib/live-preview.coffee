@@ -2,11 +2,11 @@ url = require 'url'
 previewView = null
 
 createPreviewView = (state) ->
-  previewView ?= require './preview-view'
+  previewView ?= require './live-preview-view'
   new previewView(state)
 
 isPreviewView = (object) ->
-  previewView ?= require './preview-view'
+  previewView ?= require './live-preview-view'
   object instanceof previewView
 
 deserializer =
@@ -22,8 +22,15 @@ class LivePreview
     liveUpdate: true
 
   @activate: ->
-    atom.workspaceView.command 'live-preview:toggle', =>
+    console.log "activate"
+    # console.log "#{@getPackageName}:toggle"
+    # atom.workspaceView.command "#{@getPackageName}:toggle", =>
+    #   @toggle()
+
+    atom.workspaceView.command 'coffeescript-playground-preview:toggle', =>
       @toggle()
+
+
 
     atom.workspace.registerOpener (uriToOpen) ->
       try
@@ -40,7 +47,10 @@ class LivePreview
         return
 
       if host is 'editor'
-        new createPreviewView(editorId: pathname.substring(1))
+        new createPreviewView(pathname.substring(1))
+
+  @getPackageName: ->
+    'live-preview'
 
   @toggle: ->
     if isPreviewView(atom.workspace.activePaneItem)
