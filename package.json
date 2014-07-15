@@ -1,10 +1,10 @@
 {
-  "name": "playground-preview",
-  "main": "./lib/playground-preview",
+  "name": "coffeescript-playground-preview",
+  "main": "./lib/coffeescript-playground-preview",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationEvents": ["playground-preview:toggle"],
-  "repository": "https://github.com/atom/playground-preview",
+  "activationEvents": ["coffeescript-playground-preview:toggle"],
+  "repository": "https://github.com/atom/coffeescript-playground-preview",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
