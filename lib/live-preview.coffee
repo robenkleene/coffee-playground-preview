@@ -72,6 +72,6 @@ class LivePreview
     previousActivePane = atom.workspace.getActivePane()
 
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).done (previewView) ->
-      if isPlaygroundPreviewView(previewView)
-        previewView.renderPlayground()
+      if isPreviewView(previewView)
+        previewView.renderPreview()
         previousActivePane.activate()
