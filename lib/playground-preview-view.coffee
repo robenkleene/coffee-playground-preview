@@ -69,7 +69,4 @@ class PlaygroundPreviewView extends ScrollView
     "markdown" # TODO Replace with langauges icon
 
   getUri: ->
-    if @file?
-      "playground-preview://#{@getPath()}"
-    else
-      "playground-preview://editor/#{@editorId}"
+    "playground-preview://editor/#{@editorId}"

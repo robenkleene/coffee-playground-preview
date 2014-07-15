@@ -38,7 +38,7 @@ module.exports =
         return
 
       if host is 'editor'
-        new createPlaygroundPreviewView(editorId: pathname.substring(1))
+        new createPlaygroundPreviewView(pathname.substring(1))
 
   toggle: ->
     if isPlaygroundPreviewView(atom.workspace.activePaneItem)
