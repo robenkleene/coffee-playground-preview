@@ -22,15 +22,8 @@ class LivePreview
     liveUpdate: true
 
   @activate: ->
-    console.log "activate"
-    # console.log "#{@getPackageName}:toggle"
-    # atom.workspaceView.command "#{@getPackageName}:toggle", =>
-    #   @toggle()
-
-    atom.workspaceView.command 'coffeescript-playground-preview:toggle', =>
+    atom.workspaceView.command "#{@getPackageName()}:toggle", =>
       @toggle()
-
-
 
     atom.workspace.registerOpener (uriToOpen) ->
       try
