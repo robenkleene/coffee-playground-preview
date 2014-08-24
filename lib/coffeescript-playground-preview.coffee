@@ -1,7 +1,10 @@
-# TODO: Move LivePreview to a dependency
-LivePreview = require '../../live-preview/lib/live-preview'
+CoffeescriptPlaygroundPreviewViewManager = require './coffeescript-playground-preview-manager'
 
 module.exports =
-class CoffeeScriptPlaygroundPreview extends LivePreview
-  @getPackageName: ->
-    'coffeescript-playground-preview'
+class CoffeescriptPlaygroundPreview
+
+  @activate: =>
+    @coffeescriptPlaygroundPreviewViewManager = new CoffeescriptPlaygroundPreviewViewManager('coffeescript-playground-preview:')
+
+    atom.workspaceView.command 'coffeescript-playground-preview:toggle', =>
+      @coffeescriptPlaygroundPreviewViewManager.togglePreview()
