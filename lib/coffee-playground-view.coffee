@@ -1,4 +1,4 @@
 LivePreviewView = require '../../live-preview/lib/live-preview-view'
 
 module.exports =
-class CoffeeScriptPlaygroundPreviewView extends LivePreviewView
+class CoffeePlaygroundView extends LivePreviewView

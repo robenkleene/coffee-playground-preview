@@ -1,5 +1,5 @@
 {WorkspaceView} = require 'atom'
-CoffeescriptPlaygroundPreviewView = require '../lib/coffeescript-playground-preview-view.coffee'
+CoffeescriptPlaygroundPreviewView = require '../lib/coffee-playground-view.coffee'
 
 describe "CoffeeScript Playground Preview", ->
   activationPromise = null
@@ -8,13 +8,13 @@ describe "CoffeeScript Playground Preview", ->
     atom.workspaceView = new WorkspaceView
     atom.workspace = atom.workspaceView.model
     spyOn(CoffeescriptPlaygroundPreviewView.prototype, 'render').andCallThrough()
-    activationPromise =  atom.packages.activatePackage("coffeescript-playground-preview")
+    activationPromise =  atom.packages.activatePackage("coffee-playground-preview")
 
     waitsForPromise ->
       atom.workspace.open("test.coffee")
 
   it "calls render after opening a file", ->
-    atom.workspaceView.getActiveView().trigger 'coffeescript-playground-preview:toggle'
+    atom.workspaceView.getActiveView().trigger 'coffee-playground-preview:toggle'
 
     waitsForPromise ->
       activationPromise
