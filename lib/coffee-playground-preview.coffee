@@ -19,4 +19,17 @@ class CoffeePlaygroundPreview
     @livePreviewViewManager = new LivePreviewViewManager('coffee-playground:', CoffeePlaygroundViewFactory)
 
     atom.workspaceView.command 'coffee-playground-preview:toggle', =>
-      @livePreviewViewManager.togglePreview()
+      if @livePreviewViewManager.removePreviewIfActive()
+        return
+
+      editor = atom.workspace.getActiveEditor()
+      return unless editor?
+
+      grammars = ["source.coffee"]
+      scopeName = editor.getGrammar().scopeName
+
+      unless scopeName in grammars
+        console.warn "\"#{scopeName}\" isn't supported"
+        return
+
+      @livePreviewViewManager.togglePreviewForEditorId(editor.id)
