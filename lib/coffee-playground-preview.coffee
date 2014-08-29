@@ -1,10 +1,22 @@
-viewManager = require './coffee-playground-view-manager'
+LivePreviewViewManager = require '../../live-preview/lib/live-preview-view-manager'
+CoffeePlaygroundViewFactory = require './coffee-playground-view-factory'
+
+deserializer =
+  name: 'CoffeePlaygroundView'
+  deserialize: (state) ->
+    if state.constructor is Object
+      CoffeePlaygroundView = CoffeePlaygroundViewFactory.getPreviewView()
+      uri = state.uri
+      new CoffeePlaygroundView(uri)
+atom.deserializers.add(deserializer)
 
 module.exports =
-class CoffeescriptPlaygroundPreview
+class CoffeePlaygroundPreview
+  @configDefaults:
+    liveUpdate: true
 
   @activate: =>
-    @viewManager = new viewManager('coffee-playground:')
+    @livePreviewViewManager = new LivePreviewViewManager('coffee-playground:', CoffeePlaygroundViewFactory)
 
     atom.workspaceView.command 'coffee-playground-preview:toggle', =>
-      @viewManager.togglePreview()
+      @livePreviewViewManager.togglePreview()

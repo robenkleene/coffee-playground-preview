@@ -3,7 +3,6 @@
   "main": "./lib/coffee-playground-preview",
   "version": "0.0.0",
   "description": "Playground preview for CoffeeScript",
-  "activationEvents": ["coffee-playground-preview:toggle"],
   "repository": "https://github.com/robenkleene/coffee-playground-preview",
   "license": "MIT",
   "engines": {

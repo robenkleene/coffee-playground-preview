@@ -10,3 +10,6 @@ class CoffeePlaygroundView extends LivePreviewView
 
   resolveRenderer: =>
     @renderer = require './coffee-playground-renderer'
+
+  getLiveUpdateConfig: ->
+    atom.config.get 'coffee-playground-preview.liveUpdate'
