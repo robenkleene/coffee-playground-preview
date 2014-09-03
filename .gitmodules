@@ -1,0 +1,3 @@
+[submodule "lib/coffeescript-repl-parser"]
+	path = lib/coffeescript-repl-parser
+	url = git@github.com:robenkleene/coffeescript-repl-parser.git
